@@ -1,6 +1,6 @@
-\name{accomp_ggplot2-package}
-\alias{accomp_ggplot2-package}
-\alias{accomp_ggplot2}
+\name{acc.ggplot2-package}
+\alias{acc.ggplot2-package}
+\alias{acc.ggplot2}
 \docType{package}
 \title{
 Fuctions to Extend ggplot2
@@ -10,7 +10,7 @@ A (eventual) collection of tools to extend and speed up coding for repeated uses
 }
 \details{
 \tabular{ll}{
-Package: \tab accomp_ggplot2\cr
+Package: \tab acc.ggplot2\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2012-09-06\cr
