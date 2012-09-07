@@ -8,9 +8,9 @@
 #' @param  labels a vector of labels to place on each facet
 #' @param \ldots additional arguments accepted by geom_text
 #' @return Returns a plot of class "gg" "ggplot" with annotations.  Also invisibly returns a list object of the class qfacet with the following items:
-#' \item{original } the Original ggplot2 object
-#' \item{new } the new ggplot object
-#' \item{dat } the mini data frame created for the text
+#' \item{original } {the Original ggplot2 object}
+#' \item{new } {the new ggplot object}
+#' \item{dat } {the mini data frame created for the text}
 #' @seealso \code{\link[ggplot2]{geom_text}}
 #' @keywords ggplot2 facet text
 #' @examples
