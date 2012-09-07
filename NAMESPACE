@@ -1,0 +1,2 @@
+export(qfacet_text)
+import(ggplot2)

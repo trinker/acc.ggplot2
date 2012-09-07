@@ -1,0 +1,14 @@
+Package: accomp_ggplot
+Type: Package
+Title: Fuctions to Extend ggplot2
+Version: 0.1.0
+Date: 2012-05-09
+Author: Tyler Rinker
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Depends: R (>= 2.15.1), ggplot2 (>= 0.9.2), 
+Suggests: plyr
+LazyData: true
+ByteCompile: yes
+Description: A (eventual) collection of tools to extend and speed up coding for repeated uses of plotting functions that use ggplot2. 
+License: GPL-2
+URL: https://github.com/trinker/accomp_ggplot2
