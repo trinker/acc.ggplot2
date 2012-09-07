@@ -24,8 +24,9 @@
 #'      facet_grid(gear ~ am) +
 #'      theme_bw()  
 #'  
-#'  z <- qfacet_text(p, 33, 2.2, 1:6, color="red")
-#'  
+#'  z <- qfacet_text(ggplot2.object = p, x.coor = 33, y.coor = 2.2, 
+#'      labels = 1:6, color="red")
+#   
 #'  #approach 1 (alter the text data frame and pass the qfacet object)
 #'  z$dat[5, 1:2] <- c(15, 5)
 #'  qfacet_text(z, color="red")
