@@ -8,15 +8,11 @@
 \arguments{
   \item{ggplot2.object}{a faceted ggplot2 object or an
   object returned from qfacet_text}
-
   \item{x.coord}{a single x coordinate to be repeated or a
   vector of x coordinates equal to the number of facets}
-
   \item{y.coord}{a single y coordinate to be repeated or a
   vector of y coordinates equal to the number of facets}
-
   \item{labels}{a vector of labels to place on each facet}
-
   \item{\ldots}{additional arguments accepted by geom_text}
 }
 \value{
