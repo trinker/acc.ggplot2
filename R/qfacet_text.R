@@ -46,8 +46,8 @@ function(ggplot2.object, x.coord = NULL, y.coord = NULL,
     cols <- ggplot2.object$facet[[2]][[1]]
     fcol <- dat[, as.character(cols)]
     frow <- dat[, as.character(rows)]
-    len <- length(levels(fcol)) *  length(levels(frow))
-    vars <- data.frame(expand.grid(levels(frow), levels(fcol)))
+    len <- length(levels(factor(fcol))) *  length(levels(factor(frow)))
+    vars <- data.frame(expand.grid(levels(factor(frow)), levels(factor(fcol))))
     colnames(vars) <- c(as.character(rows), as.character(cols))
     if (any(class(ggplot2.object) %in% c("ggplot", "gg"))) {
         if (is.null(labels)) {
