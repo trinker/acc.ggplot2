@@ -14,30 +14,42 @@
 #' @seealso \code{\link[ggplot2]{geom_text}}
 #' @keywords ggplot2 facet text
 #' @examples
-#'  #alter mtcars to make some variables factors
-#'  mtcars[, c("cyl", "am", "gear")] <- lapply(mtcars[, 
-#'      c("cyl", "am", "gear")], as.factor)
+#' #alter mtcars to make some variables factors
+#' mtcars[, c("cyl", "am", "gear")] <- lapply(mtcars[, 
+#'     c("cyl", "am", "gear")], as.factor)
 #'  
-#'  p <- ggplot(mtcars, aes(mpg, wt, group = cyl)) + 
-#'      geom_line(aes(color=cyl)) +
-#'      geom_point(aes(shape=cyl)) + 
-#'      facet_grid(gear ~ am) +
-#'      theme_bw()  
+#' p <- ggplot(mtcars, aes(mpg, wt, group = cyl)) + 
+#'     geom_line(aes(color=cyl)) +
+#'     geom_point(aes(shape=cyl)) + 
+#'     facet_grid(gear ~ am) +
+#'     theme_bw()  
 #'  
-#'  z <- qfacet_text(ggplot2.object = p, x.coor = 33, y.coor = 2.2, 
-#'      labels = 1:6, color="red")
+#' z <- qfacet_text(ggplot2.object = p, x.coor = 33, y.coor = 2.2, 
+#'     labels = 1:6, color="red")
 #   
-#'  #approach 1 (alter the text data frame and pass the qfacet object)
-#'  z$dat[5, 1:2] <- c(15, 5)
-#'  qfacet_text(z, color="red")
+#' #approach 1 (alter the text data frame and pass the qfacet object)
+#' z$dat[5, 1:2] <- c(15, 5)
+#' qfacet_text(z, color="red")
 #'  
-#'  #approach 2 (alter the original ggplot object)
-#'  qfacet_text(p, x = c(33, 33, 33, 33, 15, 33), 
-#'      y = c(2.2, 2.2, 2.2, 2.2, 5, 2.2), 1:6, color="red")
+#' #approach 2 (alter the original ggplot object)
+#' qfacet_text(p, x = c(33, 33, 33, 33, 15, 33), 
+#'     y = c(2.2, 2.2, 2.2, 2.2, 5, 2.2), 1:6, color="red")
 #'  
-#'  #all the same things you can pass to geom_text qfacet_text takes
-#'  qfacet_text(z, labels = paste("beta ==", 1:6), 
-#'      size = 3, color = "grey50", parse = TRUE)
+#' #all the same things you can pass to geom_text qfacet_text takes
+#' qfacet_text(z, labels = paste("beta ==", 1:6), 
+#'     size = 3, color = "grey50", parse = TRUE)
+#'      
+#' #two labels: same plot
+#' p <- ggplot(CO2, aes(conc, uptake, group = Plant)) + 
+#'     geom_line(aes(color=Plant)) +
+#'     facet_grid(Type ~ Treatment) +
+#'     theme_bw()  
+#' #plot first text layer
+#' z <- qfacet_text(ggplot2.object = p, x.coor = 250, y.coor = 10, 
+#'      labels = 1:4, color="red")
+#' #plot second text layer
+#' qfacet_text(ggplot2.object = z$new, x.coor = 900, y.coor = 10, 
+#'     labels = paste("beta ==", 11:14), color="blue", parse = TRUE)
 qfacet_text <-
 function(ggplot2.object, x.coord = NULL, y.coord = NULL, 
     labels = NULL, ...) {
