@@ -65,7 +65,7 @@ function(ggplot2.object, x.coord = NULL, y.coord = NULL,
         if (is.null(labels)) {
             labels <- LETTERS[1:len]
         }
-        if (length(labels) %in% c(1, vars)) {
+        if (!length(labels) %in% c(1, vars)) {
             stop("labels must be of length 1 or equal to number of facets")
         }
         if (length(x.coord) == 1) {
