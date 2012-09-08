@@ -50,6 +50,10 @@ qfacet_text(z, color="red")
 qfacet_text(p, x = c(33, 33, 33, 33, 15, 33),
     y = c(2.2, 2.2, 2.2, 2.2, 5, 2.2), 1:6, color="red")
 
+#use "" to not add a label to a facet
+qfacet_text(ggplot2.object = p, x.coor = 33, y.coor = 2.2,
+    labels = c("", letters[1:4], ""), color="red")
+
 #all the same things you can pass to geom_text qfacet_text takes
 qfacet_text(z, labels = paste("beta ==", 1:6),
     size = 3, color = "grey50", parse = TRUE)
