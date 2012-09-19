@@ -58,13 +58,32 @@ qfacet_text <-
 function(ggplot2.object, x.coord = NULL, y.coord = NULL, 
     labels = NULL, ...) {
     dat <- ggplot2.object$data
-    rows <- ggplot2.object$facet[[1]][[1]]
-    cols <- ggplot2.object$facet[[2]][[1]]
-    fcol <- dat[, as.character(cols)]
-    frow <- dat[, as.character(rows)]
-    len <- length(levels(factor(fcol))) *  length(levels(factor(frow)))
-    vars <- data.frame(expand.grid(levels(factor(frow)), levels(factor(fcol))))
-    colnames(vars) <- c(as.character(rows), as.character(cols))
+    look <- sapply(ggplot2.object$facet[1:2], as.character)
+    empt <- function(x) {!identical(x, character(0))}
+    who <- sapply(look, empt)
+    if (all(who)) {
+        rows <- ggplot2.object$facet[[1]][[1]]
+        frow <- dat[, as.character(rows)]
+        cols <- ggplot2.object$facet[[2]][[1]]
+        fcol <- dat[, as.character(cols)]
+        len <- length(levels(factor(fcol))) *  length(levels(factor(frow)))
+        vars <- data.frame(expand.grid(levels(factor(frow)), levels(factor(fcol))))
+        colnames(vars) <- c(as.character(rows), as.character(cols))
+    } else {
+        if (who[1]) {
+            rows <- ggplot2.object$facet[[1]][[1]]
+            frow <- dat[, as.character(rows)]    
+            len <- length(levels(factor(frow)))
+            vars <- data.frame(levels(factor(frow)), stringsAsFactors = FALSE)
+            colnames(vars) <- as.character(rows)
+        } else {
+            cols <- ggplot2.object$facet[[2]][[1]]
+            fcol <- dat[, as.character(cols)]  
+            len <- length(levels(factor(fcol)))
+            vars <- data.frame(levels(factor(fcol)), stringsAsFactors = FALSE)
+            colnames(vars) <- as.character(cols)    
+        }
+    }
     if (any(class(ggplot2.object) %in% c("ggplot", "gg"))) {
         if (is.null(labels)) {
             labels <- LETTERS[1:len]
