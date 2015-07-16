@@ -1,6 +1,8 @@
 acc.ggplot2
 =============
 
+**NOTE: This package's functionality has been moved to the [plotflow](https://github.com/trinker/plotflow) package**
+
 A (eventual) collection of tools to extend and speed up coding for repeated uses of plotting functions that use ggplot2. 
 
 ## Installation
